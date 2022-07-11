@@ -1,0 +1,12 @@
+*.fa
+*.fas
+*.gz
+*.fastq
+*.fq
+*.bam
+*.sam
+*.vcf
+Rice_44K_genotypes.csv
+RiceDiversity.44K.MSU6.Phenotypes.csv
+snpInfo.csv
+rice.data.fastStructure.input*
