@@ -53,7 +53,7 @@ pl3
 ```
 
 ```{r}
-# Standard error of the mean
+# Standard error of the mean function
 sem <- function(x, na.rm=TRUE) {
   if(na.rm) x <- na.omit(x)
   sd(x)/sqrt(length(x))
