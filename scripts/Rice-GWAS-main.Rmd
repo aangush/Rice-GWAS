@@ -190,3 +190,12 @@ gwas.PCA <- runSingleTraitGwas(gData = gData.rice.recode,
 )
 ```
 
+View results
+```{r}
+summary(gwas.PCA)
+
+plot(gwas.PCA, plotType = "qq")
+
+plot(gwas.PCA, plotType = "manhattan")
+```
+
