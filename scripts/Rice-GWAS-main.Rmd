@@ -134,3 +134,25 @@ head(data.pheno.small)
 ```
 
 Lastly, create data frame of covariates
+```{r}
+data.cv <- geno.pca.pop %>%
+  as.data.frame() %>%
+  column_to_rownames("ID")
+```
+
+
+Create the gdata object
+```{r}
+gData.rice <- createGData(geno=data.geno, map = data.map, pheno = data.pheno.small, covar = data.cv)
+```
+
+Recode the genotype data (will look into SNP imputation in the future)
+```{r}
+gData.rice.recode <- gData.rice %>% codeMarkers(verbose = TRUE)
+```
+
+Create a kinship matrix to help correct for pop. structure
+```{r}
+data.kinship <- kinship(gData.rice.recode$markers)
+```
+
