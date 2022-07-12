@@ -88,3 +88,37 @@ summary(aov2)
 ```
 
 This analysis reveals that seed length does vary significantly by assigned population, suggesting that population structure could be a problem in a future GWAS
+
+### Time to prepare GWAS data
+
+Load Genotype data
+```{r}
+Sys.setenv(VROOM_CONNECTION_SIZE="500000") # needed because the lines in this file are long.
+
+data.geno <- read_csv("../../Rice-PCA-SNPs/input/Rice_44K_genotypes.csv.gz",
+                      na=c("NA","00"))  %>%
+  rename(ID=`...1`, `6_17160794` = `6_17160794...22252`) %>% 
+  select(-`6_17160794...22253`)
+```
+
+Transform ID data into rownames (for statgenGWAS)
+```{r}
+data.geno <- data.geno %>% as.data.frame() %>% column_to_rownames("ID")
+head(data.geno[,1:10])
+```
+
+
+```{r}
+data.map <- data.frame(SNP=colnames(data.geno)) # create the object
+head(data.map)
+```
+
+create the data.map object for GWAS
+```{r}
+data.map <- data.map %>%
+  separate(SNP, into=c("chr", "pos"), sep="_", remove=FALSE, convert=TRUE ) %>%
+  column_to_rownames("SNP")
+
+head(data.map)
+```
+
