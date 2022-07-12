@@ -122,3 +122,15 @@ data.map <- data.map %>%
 head(data.map)
 ```
 
+Create phenotype data
+```{r}
+data.pheno.small <- data.pheno %>%
+  set_names(make.names(colnames(.))) %>%
+  rename(genotype=NSFTVID) %>%
+  select(genotype, where(is.numeric)) %>%
+  as.data.frame() # for GWAS, need data frames, not tibbles ;()
+
+head(data.pheno.small)
+```
+
+Lastly, create data frame of covariates
