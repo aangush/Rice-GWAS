@@ -174,5 +174,19 @@ gwas.noCorrection<- runSingleTraitGwas(gData = gData.rice.recode,
 quickly examine results
 ```{r}
 summary(gwas.noCorrection)
+
+plot(gwas.noCorrection, plotType = "qq") # View qq plot
+
+plot(gwas.noCorrection, plotType = "manhattan") # View manhattan plot
+```
+
+Run GWAS again, but include PCs for pop. structure correction
+```{r}
+gwas.PCA <- runSingleTraitGwas(gData = gData.rice.recode,
+                               traits = "Seed.length",
+                               kin = nullmat,
+                               covar = c("PC1", "PC2", "PC3", "PC4") 
+                               
+)
 ```
 
