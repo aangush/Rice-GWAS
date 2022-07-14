@@ -31,7 +31,7 @@ head(pheno.geno.pca.pop)
 ```
 
 
-Explore a phenotype: I chose `Seed.length`
+examine a phenotype: I chose `Seed.length`
 
 ```{r}
 pl <- pheno.geno.pca.pop %>% ggplot(mapping=aes(x=Seed.length))
