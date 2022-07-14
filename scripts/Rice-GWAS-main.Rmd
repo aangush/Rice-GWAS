@@ -222,3 +222,9 @@ sigSnps <- gwas.K$signSnp[[1]]
 sigSnps
 ```
 
+Sort significant SNPs by p-value
+```{r}
+sigSnps2 <- arrange(sigSnps, pValue)
+head(sigSnps2)
+```
+
