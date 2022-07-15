@@ -216,7 +216,7 @@ plot(gwas.K, plotType = "manhattan")
 ```
 This GWAS looks like the best one so far (qq plot)
 
-Extract the significant SNPs from the kinship martix corrected GWAS
+Extract the significant SNPs from the kinship matrix corrected GWAS
 ```{r}
 sigSnps <- gwas.K$signSnp[[1]]
 sigSnps
