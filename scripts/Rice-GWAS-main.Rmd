@@ -48,7 +48,7 @@ pl2
 pl3 <- pheno.geno.pca.pop %>% ggplot(mapping=aes(x=Seed.length))
 pl3 <- pl3 + labs(title="Seed.length faceted by Region")
 pl3 <- pl3 + facet_wrap(facets= ~ Region )
-pl3 <- pl3 + geom_histogram(fill="darkgreen")
+pl3 <- pl3 + geom_histogram(fill="darkviolet")
 pl3
 ```
 
