@@ -14,7 +14,10 @@ ______
 
 As mentioned, this project makes use of data previously gathered/processed in my [Rice-PCA-SNPs](https://github.com/aangush/Rice-PCA-SNPs) repo: the SNPs, principle components, population assignments (by fastStructure), and associated phenotype data. Then the PCs, population assignments, and phenotype data were all joined to one object. 
 
-I chose the trait _seed length_ as my trait of interest and next examined some of the variation in seed length in the dataset. I first produced visualizations of seed length like those shown below:
+I chose the trait _seed length_ as my trait of interest and next examined some of the variation in seed length in the dataset. I first produced some visualizations of seed length data like those shown below:
+
+[total seed length histogram](seed.length_vis.png)
+[seed length faceted by region](seed.length.region.vis)
 
 After, the means and standard error of the means for seed length for each region were calculated, and used to perform an ANOVA. This test revealed that there are significant differences in mean seed length by region (p-value 1.81e-12). Unfortunately (but not unsurprisingly), mean seed length also significantly varied depending on fastStructure population assignment (ANOVA, p-value 8.8e-15) -- suggesting that in a GWAS population structure would need to be taken into consideration.
 
@@ -27,4 +30,4 @@ To use statgenGWAS to perform GWASs, four data frames (and an optional 5th) are 
 5. (optional) a covariate data frame that can be used to estimate population structure
 
 After each of these data frames are prepared, they are brought together into one gdata object which is subsequently used to perform GWAS. The genotype data also
-must be recoded, redundant SNPs must be removed, and missing values replaced. statgenGWAS has a function that does this.
+must be recoded, redundant SNPs must be removed, and missing values replaced. statgenGWAS has a function to do this. 
