@@ -41,9 +41,13 @@ In this analysis I ran three GWAS:
 For your viewing pleasure, I've included the qq and manhattan plots from each analysis below.
 
 ##### No pop. structure controls
-![qq plot](gwas_nocorrect_qq1.png)
+![qq plot](gwas_nocorrect_qq1.png "qq plot")
 ![manhattan plot](gwas_nocorrect_man1.png)
 
 ##### PCs as pop. structure control
 ![qq plot](gwas_pca_qq.png)
 ![manhattan plot](gwas_pca_qq.png)
+
+##### Kinship matrix as pop. structure control
+![qq plot](gwas_kin_qq.png)
+![manhattan plot](gwas_kin_man.png)
