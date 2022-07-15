@@ -17,7 +17,7 @@ As mentioned, this project makes use of data previously gathered/processed in my
 I chose the trait _seed length_ as my trait of interest and next examined some of the variation in seed length in the dataset. I first produced some visualizations of seed length data like those shown below:
 
 [total seed length histogram](seed.length_vis.png)
-[seed length faceted by region](seed.length.region.vis)
+[seed length faceted by region](seed.length.region.vis.png)
 
 After, the means and standard error of the means for seed length for each region were calculated, and used to perform an ANOVA. This test revealed that there are significant differences in mean seed length by region (p-value 1.81e-12). Unfortunately (but not unsurprisingly), mean seed length also significantly varied depending on fastStructure population assignment (ANOVA, p-value 8.8e-15) -- suggesting that in a GWAS population structure would need to be taken into consideration.
 
