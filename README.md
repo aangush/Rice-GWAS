@@ -34,20 +34,20 @@ must be recoded, redundant SNPs must be removed, and missing values replaced. st
 
 In this analysis I ran three GWAS: 
 
-1. No pop. structure controls
-2. PCs used as pop. structure control
-3. Kinship matrix used for pop. structure control
+1. No pop. structure correction
+2. PCs used for pop. structure correction
+3. Kinship matrix used for pop. structure correction
 
 For your viewing pleasure, I've included the qq and manhattan plots from each analysis below.
 
-##### No pop. structure controls
-![qq plot](gwas_nocorrect_qq1.png "qq plot")
-![manhattan plot](gwas_nocorrect_man1.png)
+##### No pop. structure correction
+![qq plot](gwas_nocorrect_qq1.png "GWAS no pop. corrections qq plot")
+![manhattan plot](gwas_nocorrect_man1.png "GWAS no pop. corrections manhattan plot")
 
-##### PCs as pop. structure control
-![qq plot](gwas_pca_qq.png)
-![manhattan plot](gwas_pca_qq.png)
+##### PCs as pop. structure correction
+![qq plot](gwas_pca_qq.png "GWAS PC pop. correction qq plot")
+![manhattan plot](gwas_pca_qq.png "GWAS PC pop. correction manhattan plot")
 
-##### Kinship matrix as pop. structure control
-![qq plot](gwas_kin_qq.png)
-![manhattan plot](gwas_kin_man.png)
+##### Kinship matrix as pop. structure correction
+![qq plot](gwas_kin_qq.png "GWAS kinship matrix pop. correction qq plot")
+![manhattan plot](gwas_kin_man.png "GWAS kinship matrix pop. correction manhattan plot")
