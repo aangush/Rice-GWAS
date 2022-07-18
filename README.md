@@ -51,3 +51,7 @@ For your viewing pleasure, I've included the qq and manhattan plots from each an
 ##### Kinship matrix as pop. structure correction
 ![qq plot](gwas_kin_qq.png "GWAS kinship matrix pop. correction qq plot")
 ![manhattan plot](gwas_kin_man.png "GWAS kinship matrix pop. correction manhattan plot")
+
+
+By comparing the qq and manhattan plots from each GWAS, it appears that in this case using a kinship matrix was the best way to control 
+for population structure as it resulted in the fewest significant SNPs and the best looking qq plot.
