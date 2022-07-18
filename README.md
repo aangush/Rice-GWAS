@@ -24,15 +24,15 @@ After, the means and standard error of the means for seed length for each region
 To use statgenGWAS to perform GWASs, four data frames (and an optional 5th) are required:
 
 1. genotype data which contains the genotype at each SNP for each individual/strain
-2.  genotype map that contains the chromosome and position numbers of each SNP (SNPs in this data frame must be in the same order as the latter)
+2. genotype map that contains the chromosome and position numbers of each SNP (SNPs in this data frame must be in the same order as the latter)
 3. a data frame with phenotype data
 4. a kinship matrix
 5. (optional) a covariate data frame that can be used to estimate population structure
 
-After each of these data frames are prepared, they are brought together into one gdata object which is subsequently used to perform GWAS. The genotype data also
-must be recoded, redundant SNPs must be removed, and missing values replaced. statgenGWAS has a function to do this. 
+After each data frame is prepared, they are brought together into one .gdata object which is subsequently used to perform GWAS. The genotype data also
+must be recoded, redundant SNPs must be removed, and missing values replaced. statgenGWAS has a function that does this. 
 
-In this analysis I ran three GWAS: 
+In this analysis three GWAS were run: 
 
 1. No pop. structure correction
 2. PCs used for pop. structure correction
