@@ -146,6 +146,12 @@ plot(gwas.K, plotType = "manhattan")
 # using kinship matrix appears to be the best method so far for controlling for population structure
 
 
+# Extract the significant SNPs from the kinship matrix corrected GWAS
+sigSnps <- gwas.K$signSnp[[1]]
+head(sigSnps)
 
+# sort significant SNPs by p-value
+sigSnps2 <- arrange(sigSnps, pValue)
+head(sigSnps2)
 
 
