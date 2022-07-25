@@ -81,13 +81,20 @@ data.map <- data.map %>%
   separate(SNP, into=c("chr", "pos"), sep="_", remove=FALSE, convert=TRUE ) %>%
   column_to_rownames("SNP")
 
+# create phenotype data 
+data.pheno.small <- data.pheno %>%
+  set_names(make.names(colnames(.))) %>%
+  rename(genotype=NSFTVID) %>%
+  select(genotype, where(is.numeric)) %>%
+  as.data.frame() # for GWAS, need data frames, not tibbles ;()
 
+# lastly, create a data frame of covariates
+data.cv <- geno.pca.pop %>%
+  as.data.frame() %>%
+  column_to_rownames("ID")
 
-
-
-
-
-
+# create the .gdata object -- combine the objects above into one
+gData.rice <- createGData(geno=data.geno, map = data.map, pheno = data.pheno.small, covar = data.cv)
 
 
 
