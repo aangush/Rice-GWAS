@@ -96,6 +96,33 @@ data.cv <- geno.pca.pop %>%
 # create the .gdata object -- combine the objects above into one
 gData.rice <- createGData(geno=data.geno, map = data.map, pheno = data.pheno.small, covar = data.cv)
 
+#recode the genotype data
+gData.rice.recode <- gData.rice %>% codeMarkers(verbose = TRUE)
+
+# Create a kinship matrix to help correct for pop. structure
+data.kinship <- kinship(gData.rice.recode$markers)
+
+# Now it is time to run the GWAS. This will be done in different ways to compare methods of population structure correction
+
+# First, running the GWAS with no correction for pop. structure
+
+#define a zero matrix
+nullmat <- matrix(0, ncol=413,nrow=413, dimnames = dimnames(data.kinship))
+
+# run the GWAS
+gwas.noCorrection<- runSingleTraitGwas(gData = gData.rice.recode,
+                                       traits = "Seed.length",
+                                       kin = nullmat)
+
+
+
+
+
+
+
+
+
+
 
 
 
