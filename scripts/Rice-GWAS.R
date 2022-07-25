@@ -71,10 +71,15 @@ data.geno <- read_csv("../../Rice-PCA-SNPs/input/Rice_44K_genotypes.csv.gz",
   rename(ID=`...1`, `6_17160794` = `6_17160794...22252`) %>% 
   select(-`6_17160794...22253`)
 
+# Transform ID data into rownames (for statgenGWAS)
+data.geno <- data.geno %>% as.data.frame() %>% column_to_rownames("ID")
 
- 
+data.map <- data.frame(SNP=colnames(data.geno)) # create the object
 
-
+# create the data.map object for GWAS
+data.map <- data.map %>%
+  separate(SNP, into=c("chr", "pos"), sep="_", remove=FALSE, convert=TRUE ) %>%
+  column_to_rownames("SNP")
 
 
 
