@@ -171,7 +171,7 @@ gwas.noCorrection<- runSingleTraitGwas(gData = gData.rice.recode,
                                        kin = nullmat)
 ```
 
-quickly examine results
+examine results
 ```{r}
 summary(gwas.noCorrection)
 
