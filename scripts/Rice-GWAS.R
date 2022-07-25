@@ -132,10 +132,18 @@ plot(gwas.PCA, plotType = "qq")
 
 plot(gwas.PCA, plotType = "manhattan")                      
 
+# Now, run a GWAS and use a kinship matrix as pop. structure correction
+gwas.K <- runSingleTraitGwas(gData = gData.rice.recode,
+                             traits = "Seed.length",
+                             kin = data.kinship)
+# view the results
+summary(gwas.K)
 
+plot(gwas.K, plotType = "qq")
 
+plot(gwas.K, plotType = "manhattan")
 
-
+# using kinship matrix appears to be the best method so far for controlling for population structure
 
 
 
