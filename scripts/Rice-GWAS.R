@@ -43,3 +43,48 @@ pheno.geno.pca.pop %>% group_by(Region) %>%
             sem.seed.l=sem(Seed.length)
   ) %>%
   arrange(desc(mean.seed.l))
+
+# perform an ANOVA on seed length to investigate if mean seed length varies significantly by region
+aovsl <- aov(Seed.length ~ Region, data=pheno.geno.pca.pop)
+summary(aovs1)
+
+
+# Through the ANOVA above, we can conclude that Seed length varies significantly by region.
+
+# Now it would be good to check if mean seed length varies significantly by fastStructure population assignment.
+pheno.geno.pca.pop %>% group_by(assignedPop) %>% summarize(mean.Seed.length=mean(Seed.length, na.rm = T), sem.Seed.length=sem(Seed.length)) %>%
+  arrange(desc(mean.Seed.length))
+
+aov2 <- aov(Seed.length ~ assignedPop, data=pheno.geno.pca.pop)
+summary(aov2)
+
+# This analysis reveals that seed length does vary significantly by assigned population, suggesting that population structure could be a problem in a future GWAS
+
+# Time to prepare GWAS data
+
+
+# Load Genotype data
+Sys.setenv(VROOM_CONNECTION_SIZE="500000") # needed because the lines in this file are long.
+
+data.geno <- read_csv("../../Rice-PCA-SNPs/input/Rice_44K_genotypes.csv.gz",
+                      na=c("NA","00"))  %>%
+  rename(ID=`...1`, `6_17160794` = `6_17160794...22252`) %>% 
+  select(-`6_17160794...22253`)
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
