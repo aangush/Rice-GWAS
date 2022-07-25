@@ -121,7 +121,16 @@ plot(gwas.noCorrection, plotType = "qq") # View qq plot
 plot(gwas.noCorrection, plotType = "manhattan") # View manhattan plot
 
 # Run GWAS again, but include PCs for pop. structure correction
+gwas.PCA <- runSingleTraitGwas(gData = gData.rice.recode,
+                               traits = "Seed.length",
+                               kin = nullmat,
+                               covar = c("PC1", "PC2", "PC3", "PC4"))
+# View results
+summary(gwas.PCA)
 
+plot(gwas.PCA, plotType = "qq")
+
+plot(gwas.PCA, plotType = "manhattan")                      
 
 
 
