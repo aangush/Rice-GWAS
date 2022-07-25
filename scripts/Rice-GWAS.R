@@ -113,9 +113,14 @@ nullmat <- matrix(0, ncol=413,nrow=413, dimnames = dimnames(data.kinship))
 gwas.noCorrection<- runSingleTraitGwas(gData = gData.rice.recode,
                                        traits = "Seed.length",
                                        kin = nullmat)
+# examine results of first GWAS
+summary(gwas.noCorrection)
 
+plot(gwas.noCorrection, plotType = "qq") # View qq plot
 
+plot(gwas.noCorrection, plotType = "manhattan") # View manhattan plot
 
+# Run GWAS again, but include PCs for pop. structure correction
 
 
 
