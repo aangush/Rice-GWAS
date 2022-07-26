@@ -2,7 +2,7 @@ library(tidyverse)
 library(statgenGWAS)
 
 # Load data from the previous analysis
-load("../../Rice-PCA-SNPs/output/data_from_SNP_lab.Rdata")
+load("C:/Users/aangu/bioinfo/bis180L/Rice-PCA-SNPs/output/data_from_SNP_lab.Rdata")
 
 
 # Join the PCs, population assignments, and phenotype data
@@ -46,7 +46,7 @@ pheno.geno.pca.pop %>% group_by(Region) %>%
 
 # perform an ANOVA on seed length to investigate if mean seed length varies significantly by region
 aovsl <- aov(Seed.length ~ Region, data=pheno.geno.pca.pop)
-summary(aovs1)
+summary(aovsl)
 
 
 # Through the ANOVA above, we can conclude that Seed length varies significantly by region.
@@ -66,7 +66,7 @@ summary(aov2)
 # Load Genotype data
 Sys.setenv(VROOM_CONNECTION_SIZE="500000") # needed because the lines in this file are long.
 
-data.geno <- read_csv("../../Rice-PCA-SNPs/input/Rice_44K_genotypes.csv.gz",
+data.geno <- read_csv("C:/Users/aangu/bioinfo/bis180L/Rice-PCA-SNPs/input/Rice_44K_genotypes.csv.gz",
                       na=c("NA","00"))  %>%
   rename(ID=`...1`, `6_17160794` = `6_17160794...22252`) %>% 
   select(-`6_17160794...22253`)
